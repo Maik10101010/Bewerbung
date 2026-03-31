@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Maik Grabow | Bewerbung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin: 8px 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00adb5;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 10px 5px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s, transform 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      transition: all 0.3s;
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #028a90;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 10px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #eee;
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s;
+    }
+
+    .popup-content {
+      background: #f1f1f1;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+      transform: translateY(-20px);
+      animation: slideDown 0.3s forwards;
+    }
+
+    .popup .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 25px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;} to {opacity: 1;}
+    }
+
+    @keyframes slideDown {
+      from {transform: translateY(-20px);} 
+      to {transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .popup-content {
+        padding: 20px;
+        font-size: 14px;
+      }
+      .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Maik Grabow</h1>
+  <p>Motivierter Quereinsteiger in Lager, Gastronomie & IT</p>
+  <p>Zuverlässig • Lernbereit • Flexibel</p>
+
+  <div>
+    <a href="#erfahrung" class="btn">Erfahrung</a>
+    <a href="#" class="btn" onclick="toggleKontakt()">📇 Kontakt</a>
+    <a href="#" class="btn" onclick="toggleZeugnisse()">📄 Zeugnisse</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2>Über mich</h2>
+  <p>
+    Ich bin eine motivierte Persönlichkeit mit schneller Auffassungsgabe.
+    Neue Aufgaben gehe ich strukturiert und lösungsorientiert an. Teamarbeit und
+    Weiterentwicklung sind für mich selbstverständlich.
+  </p>
+</section>
+
+<section id="erfahrung">
+  <h2>Erfahrung</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>Gastronomie & Verkauf</h3>
+      <p>Kundenbetreuung und Verkauf von Lebensmitteln</p>
+      <p>Sicherer Umgang mit Stresssituationen</p>
+    </div>
+    <div class="project">
+      <h3>Lager & Logistik</h3>
+      <p>Warenannahme und Organisation</p>
+      <p>Strukturiertes Arbeiten</p>
+    </div>
+    <div class="project">
+      <h3>IT & Programmieren</h3>
+      <p>Grundkenntnisse in Python</p>
+      <p>Interesse an Webentwicklung (HTML & CSS)</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Lebenslauf</h2>
+  <ul>
+    <li><strong>2024–2026:</strong> Bäckerei – Warenannahme & Verkauf</li>
+    <li><strong>2022–2024:</strong> Lager – Organisation & Versand</li>
+    <li><strong>2020–2022:</strong> Pizzeria – Kundenservice & Küche</li>
+    <li><strong>2020:</strong> Realschulabschluss</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>Python</span>
+    <span>Teamarbeit</span>
+    <span>Zuverlässigkeit</span>
+  </div>
+</section>
+
+<!-- Popup Kontakt -->
+<div id="contactBox" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="toggleKontakt()">&times;</span>
+    <h3>Maik Grabow</h3>
+    <p>📧 <a href="mailto:grabow.maik@gmail.com">grabow.maik@gmail.com</a></p>
+    <p>📞 <a href="tel:+4917659693216">+49 17659693216</a></p>
+    <a href="maik-grabow.vcf" download class="btn">Kontakt speichern</a>
+  </div>
+</div>
+
+<!-- Popup Zeugnisse -->
+<div id="zeugnisseBox" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="toggleZeugnisse()">&times;</span>
+    <h3>Meine Zeugnisse</h3>
+    <p>Hier kannst du meine Arbeits- und Schulzeugnisse ansehen oder herunterladen:</p>
+    <ul>
+      <li><a href="AbschlussRealschule.pdf" target="_blank">Realschule Zeugnis (2020)</a> - <a href="AbschlussRealschule.pdf" download>Download</a></li>
+      <li><a href="WbsMSOfficeCertificate.pdf" target="_blank">MS Office Certificate (2016)</a> - <a href="WbsMSOfficeCertificate.pdf" download>Download</a></li>
+      <li><a href="PrimaPaginaMedia.pdf" target="_blank">Erweiterter Hauptschulabschluss Italien (1995)</a> - <a href="PrimaPaginaMedia.pdf" download>Download</a></li>
+      <li><a href="SecondaPaginaMedia.pdf" target="_blank">Erweiterter Hauptschulabschluss Italien (1995)</a> - <a href="SecondaPaginaMedia.pdf" download>Download</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Maik Grabow</p>
+</footer>
+
+<script>
+function toggleKontakt() {
+  var box = document.getElementById("contactBox");
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+
+function toggleZeugnisse() {
+  var box = document.getElementById("zeugnisseBox");
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>
