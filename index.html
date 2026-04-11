@@ -5,6 +5,10 @@
   <title>Maik Grabow | Bewerbung Lager, Gastronomie & IT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+     html {
+  scroll-behavior: smooth;
+}
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -169,6 +173,26 @@
   transform: scale(1.05);
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 80px; /* über WhatsApp Button */
+  right: 20px;
+  background: #00adb5;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 18px;
+  display: none;
+  z-index: 999;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.back-to-top:hover {
+  background: #028a90;
+  transform: scale(1.1);
+}
+
     @keyframes fadeIn {
       from {opacity: 0;} to {opacity: 1;}
     }
@@ -305,11 +329,22 @@ function toggleZeugnisse() {
   var box = document.getElementById("zeugnisseBox");
   box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
+
+// Button anzeigen wenn gescrollt wird
+window.onscroll = function() {
+  var btn = document.getElementById("topBtn");
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+}
 </script>
 <a href="https://wa.me/4917659693216?text=Hallo%20ich%20interessiere%20mich%20für%20Ihre%20Bewerbung" 
    target="_blank" 
    class="whatsapp-float">
    💬 WhatsApp
 </a>
+<a href="#" class="back-to-top" id="topBtn">⬆</a>
 </body>
 </html>
