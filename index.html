@@ -149,6 +149,26 @@
       color: #333;
     }
 
+    .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+  transform: scale(1.05);
+}
+
     @keyframes fadeIn {
       from {opacity: 0;} to {opacity: 1;}
     }
@@ -286,6 +306,10 @@ function toggleZeugnisse() {
   box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
 </script>
-
+<a href="https://wa.me/4917659693216?text=Hallo%20ich%20interessiere%20mich%20für%20Ihre%20Bewerbung" 
+   target="_blank" 
+   class="whatsapp-float">
+   💬 WhatsApp
+</a>
 </body>
 </html>
